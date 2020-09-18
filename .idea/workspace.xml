@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="76104227-f3fd-4062-9296-067c7156d378" name="Default Changelist" comment="test commit">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hbmy1WJ4iqBoaeFZQxTyPhGtKF" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v12.13.1/bin/node" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="76104227-f3fd-4062-9296-067c7156d378" name="Default Changelist" comment="" />
+      <created>1600288416815</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600288416815</updated>
+      <workItem from="1600288417860" duration="1688000" />
+      <workItem from="1600450857216" duration="85000" />
+      <workItem from="1600453537940" duration="664000" />
+    </task>
+    <task id="LOCAL-00001" summary="test commit">
+      <created>1600288450399</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600288450399</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="191" y="27" width="912" height="741" key="CommitChangelistDialog2" timestamp="1600290329437">
+      <screen x="0" y="27" width="1304" height="741" />
+    </state>
+    <state x="191" y="27" width="912" height="741" key="CommitChangelistDialog2/0.27.1304.741@0.27.1304.741" timestamp="1600290329437" />
+    <state width="1281" height="172" key="GridCell.Tab.0.bottom" timestamp="1600290332359">
+      <screen x="0" y="27" width="1304" height="741" />
+    </state>
+    <state width="1281" height="172" key="GridCell.Tab.0.bottom/0.27.1304.741@0.27.1304.741" timestamp="1600290332359" />
+    <state width="1281" height="172" key="GridCell.Tab.0.center" timestamp="1600290332355">
+      <screen x="0" y="27" width="1304" height="741" />
+    </state>
+    <state width="1281" height="172" key="GridCell.Tab.0.center/0.27.1304.741@0.27.1304.741" timestamp="1600290332355" />
+    <state width="1281" height="172" key="GridCell.Tab.0.left" timestamp="1600290332354">
+      <screen x="0" y="27" width="1304" height="741" />
+    </state>
+    <state width="1281" height="172" key="GridCell.Tab.0.left/0.27.1304.741@0.27.1304.741" timestamp="1600290332354" />
+    <state width="1281" height="172" key="GridCell.Tab.0.right" timestamp="1600290332357">
+      <screen x="0" y="27" width="1304" height="741" />
+    </state>
+    <state width="1281" height="172" key="GridCell.Tab.0.right/0.27.1304.741@0.27.1304.741" timestamp="1600290332357" />
+    <state x="247" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600288485482">
+      <screen x="0" y="27" width="1304" height="741" />
+    </state>
+    <state x="247" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1304.741@0.27.1304.741" timestamp="1600288485482" />
+    <state x="454" y="114" width="385" height="573" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1600450906650">
+      <screen x="0" y="27" width="1304" height="741" />
+    </state>
+    <state x="454" y="114" width="385" height="573" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.27.1304.741@0.27.1304.741" timestamp="1600450906650" />
+    <state x="433" y="312" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600450878227">
+      <screen x="0" y="27" width="1304" height="741" />
+    </state>
+    <state x="433" y="312" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1304.741@0.27.1304.741" timestamp="1600450878227" />
+  </component>
+</project>

@@ -1,0 +1,31 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(date 1592836068959)
++++ .gitignore	(date 1592836068959)
+@@ -0,0 +1,23 @@
++# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
++
++# dependencies
++/node_modules
++/.idea
++/.pnp
++.pnp.js
++/dist
++# testing
++/coverage
++
++# misc
++.DS_Store
++.env.local
++.env.development.local
++.env.test.local
++.env.production.local
++
++npm-debug.log*
++yarn-debug.log*
++yarn-error.log*
++
++yarn.lock
