@@ -14,7 +14,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
-
+import TreeView from '@material-ui/lab/TreeView';
+import TreeItem from '@material-ui/lab/TreeItem';
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -109,6 +110,11 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) =>
   createStyles({
+    tree: {
+      textAlign: 'left',
+      flexGrow: 1,
+      maxWidth: 400,
+    },
     root: {
       display: 'flex',
     },
@@ -181,29 +187,25 @@ const MiniDrawer = () =>{
   };
 
   const buildRecursiveMenu = (items)=>(
-    items.map((item, index)=>{
-      return(
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <ListItem button >
-              <span className="tete">{item.name}</span>
-            </ListItem>
-          </AccordionSummary>
-          {item.sublevels && // esto es equivalente a que fuera hecho un if(item.sublevels){...}
-          <AccordionDetails>
-            <List>
-              {buildRecursiveMenu(item.sublevels)}
-            </List>
-          </AccordionDetails>
-          }
-        </Accordion>
-      )
-    })
+    <TreeView
+      className={classes.tree}
+      defaultCollapseIcon={<ExpandMoreIcon />}
+      defaultExpandIcon={<ChevronRightIcon />}
+    >
+      {
+        items.map((item, index)=>{
+          return(
+            <TreeItem nodeId={index} label={item.name}>
+              {item.sublevels && // esto es equivalente a que fuera hecho un if(item.sublevels){...}
+              buildRecursiveMenu(item.sublevels)
+              }
+            </TreeItem>
+          )
+        })
+      }
+    </TreeView>
   )
+
 
   return (
     <div className={classes.root}>
@@ -244,11 +246,9 @@ const MiniDrawer = () =>{
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
-
         </div>
         <Divider />
         { buildRecursiveMenu(categories) }
-
       </Drawer>
       <main
         className={clsx(classes.content, {
