@@ -21,75 +21,73 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Avatar from '@material-ui/core/Avatar';
 import Table from './Table';
+import profile from './img/perfil.JPG';
 
 
 
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-    },
-    appBar: {
-        zIndex: theme.zIndex.drawer + 1,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-    },
-    appBarShift: {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    menuButton: {
-        marginRight: 36,
-    },
-    hide: {
-        display: 'none',
-    },
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
-        whiteSpace: 'nowrap',
-    },
-    drawerOpen: {
-        width: drawerWidth,
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    drawerClose: {
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        overflowX: 'hidden',
-        width: theme.spacing(7) + 1,
-        [theme.breakpoints.up('sm')]: {
-            width: theme.spacing(9) + 1,
+const useStyles = makeStyles((theme) =>
+    createStyles({
+        root: {
+            display: 'flex',
         },
-    },
-    toolbar: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: theme.spacing(0, 1),
-        // necessary for content to be below app bar
-        ...theme.mixins.toolbar,
-    },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-    },
-}));
+        appBar: {
+            transition: theme.transitions.create(['margin', 'width'], {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.leavingScreen,
+            }),
+        },
+        appBarShift: {
+            width: `calc(100% - ${drawerWidth}px)`,
+            marginLeft: drawerWidth,
+            transition: theme.transitions.create(['margin', 'width'], {
+                easing: theme.transitions.easing.easeOut,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+        },
+        menuButton: {
+            marginRight: theme.spacing(2),
+        },
+        hide: {
+            display: 'none',
+        },
+        drawer: {
+            width: drawerWidth,
+            flexShrink: 0,
+        },
+        drawerPaper: {
+            width: drawerWidth,
+        },
+        drawerHeader: {
+            display: 'flex',
+            alignItems: 'center',
+            padding: theme.spacing(0, 1),
+            // necessary for content to be below app bar
+            ...theme.mixins.toolbar,
+            justifyContent: 'flex-end',
+        },
+        content: {
+            flexGrow: 1,
+            padding: theme.spacing(3),
+            transition: theme.transitions.create('margin', {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.leavingScreen,
+            }),
+            marginLeft: -drawerWidth,
+        },
+        contentShift: {
+            transition: theme.transitions.create('margin', {
+                easing: theme.transitions.easing.easeOut,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+            marginLeft: 0,
+        },
+    }),
+);
 
- const MiniDrawer = () =>{
+ const PersistentDrawerLeft = () => {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -102,12 +100,11 @@ const useStyles = makeStyles((theme) => ({
         setOpen(false);
     };
 
-    const buildAllItemsMenu = (items) =>{
-        return( reduce(items.categories, (list,category,i) =>{
+    const buildAllItemsMenu = (items) => {
+        return( reduce(items, (list,category,i) =>{
             return list.concat(buildChildrenMenu(category, true));
         },[]));
     }
-​
     const buildChildrenMenu = (rawItem, parent) => {
         let item = buildItem(rawItem,  parent || null);
         if(get(rawItem, 'sublevels')){
@@ -123,7 +120,6 @@ const useStyles = makeStyles((theme) => ({
             return { ...item };
         }
     }
-​
     const buildItem = (rawItem,isParent) => {
         return {
             title : rawItem.name || 'unknow',
@@ -235,7 +231,7 @@ const useStyles = makeStyles((theme) => ({
                     </Typography>
 
                 </Toolbar>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg"><img src="./img/perfil.JPG" alt=""/></Avatar>
+                <Avatar alt="Remy Sharp" src={profile}/>
             </AppBar>
             <Drawer
                 className={classes.drawer}
@@ -267,59 +263,62 @@ const useStyles = makeStyles((theme) => ({
                     </AccordionSummary>
                     <AccordionDetails>
                         <List>
-                            {categories.map((category, index) => (
-                                <Accordion>
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
+                            {buildAllItemsMenu(categories).map((category, index) => {
+                                console.log(category);
+                                return(
+                                    <Accordion>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
 
-                                    >
-                                        <ListItem button key={index}>
-                                            <span>{category.name}</span>
+                                        >
+                                            <ListItem button key={index}>
+                                                <span>{category.name}</span>
 
-                                        </ListItem>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <List>
-                                            {category.sublevels.map((sublevel, index2) => (
-                                                <Accordion>
-                                                    <AccordionSummary
-                                                        expandIcon={<ExpandMoreIcon />}
-                                                        aria-controls="panel1a-content"
-                                                        id="panel1a-header"
+                                            </ListItem>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <List>
+                                                {category.sublevels.map((sublevel, index2) => (
+                                                    <Accordion>
+                                                        <AccordionSummary
+                                                            expandIcon={<ExpandMoreIcon />}
+                                                            aria-controls="panel1a-content"
+                                                            id="panel1a-header"
 
-                                                    >
-                                                        <ListItem button key={index2}>
-                                                            <span>{sublevel.name}</span>
-                                                        </ListItem>
-                                                    </AccordionSummary>
-                                                    <AccordionDetails>
-                                                        <List>
-                                                            {category.sublevels.map((sublevel, index3) => (
-                                                                <ListItem button key={index3}>
-                                                                    {!sublevel.sublevels &&
-                                                                    <span>{sublevel.name}</span>
-                                                                    }
-                                                                    {sublevel.sublevels &&
-                                                                    sublevel.sublevels.map((_sublevel, index3) => (
-                                                                        <List>
-                                                                            <ListItem button key={index3}>
-                                                                                <span>{_sublevel.name}</span>
-                                                                            </ListItem>
-                                                                        </List>
-                                                                    ))}
-                                                                </ListItem>
-                                                            ))}
-                                                        </List>
-                                                    </AccordionDetails>
-                                                </Accordion>
+                                                        >
+                                                            <ListItem button key={index2}>
+                                                                <span>{sublevel.name}</span>
+                                                            </ListItem>
+                                                        </AccordionSummary>
+                                                        <AccordionDetails>
+                                                            <List>
+                                                                {category.sublevels.map((sublevel, index3) => (
+                                                                    <ListItem button key={index3}>
+                                                                        {!sublevel.sublevels &&
+                                                                        <span>{sublevel.name}</span>
+                                                                        }
+                                                                        {sublevel.sublevels &&
+                                                                        sublevel.sublevels.map((_sublevel, index3) => (
+                                                                            <List>
+                                                                                <ListItem button key={index3}>
+                                                                                    <span>{_sublevel.name}</span>
+                                                                                </ListItem>
+                                                                            </List>
+                                                                        ))}
+                                                                    </ListItem>
+                                                                ))}
+                                                            </List>
+                                                        </AccordionDetails>
+                                                    </Accordion>
 
-                                            ))}
-                                        </List>
-                                    </AccordionDetails>
-                                </Accordion>
-                            ))}
+                                                ))}
+                                            </List>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                )
+                            })}
                         </List>
                     </AccordionDetails>
                 </Accordion>
@@ -337,4 +336,4 @@ const useStyles = makeStyles((theme) => ({
         </div>
     );
 }
-export default MiniDrawer;
+export default PersistentDrawerLeft;
