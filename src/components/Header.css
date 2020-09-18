@@ -1,0 +1,21 @@
+.tete{
+    color: #333333;
+}
+.MuiList-padding{
+    width: 100%;
+}
+.MuiAccordionDetails-root{
+    padding: 0 !important;
+}
+.MuiAppBar-colorPrimary {
+    flex-direction: row !important;
+    align-items: center !important;
+    place-content: space-between !important;
+    padding-right: 30px;
+}
+.MuiList-padding {
+    padding-bottom: 0 !important;
+}
+.MuiAccordionSummary-root.Mui-expanded {
+    background: #0003 !important;
+}
