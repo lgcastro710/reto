@@ -247,24 +247,7 @@ const MiniDrawer = () =>{
 
         </div>
         <Divider />
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-
-          >
-            <ListItem button >
-              <span className="tete">Categorias</span>
-
-            </ListItem>
-          </AccordionSummary>
-          <AccordionDetails>
-            <List>
-              { buildRecursiveMenu(categories) }
-            </List>
-          </AccordionDetails>
-        </Accordion>
+        { buildRecursiveMenu(categories) }
 
       </Drawer>
       <main
